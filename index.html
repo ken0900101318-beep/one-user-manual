@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE聚 用戶端功能說明 - 新員工教育訓練</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #ff6b35;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #ff6b35;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #ff6b35;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            color: #333;
+            border: none;
+            padding: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #ff6b35;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: #ff4500;
+            text-decoration: underline;
+        }
+
+        .feature-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .screenshot {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .screenshot-large {
+            max-width: 600px;
+        }
+
+        .screenshot-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .screenshot-caption {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box.warning {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .info-box.success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .info-box.info {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+
+        .info-box h4 {
+            margin: 0 0 10px 0;
+            color: inherit;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #ff6b35;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            color: #d63384;
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ff6b35;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .badge-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .badge-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .badge-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .screenshot {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .screenshot {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 ONE聚 桌遊自助開桌 APP<br>用戶端功能說明</h1>
+        <p class="subtitle">
+            <strong>新員工教育訓練教材</strong><br>
+            文件版本：v1.0 | 最後更新：2026-02-25<br>
+            適用對象：新進客服人員、店面人員
+        </p>
+
+        <!-- 目錄 -->
+        <div class="toc">
+            <h2>📖 目錄</h2>
+            <ul>
+                <li><a href="#intro">1. 系統簡介</a></li>
+                <li><a href="#login">2. 登入與註冊</a>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li><a href="#verification">2-A. 身份驗證</a></li>
+                    </ul>
+                </li>
+                <li><a href="#home">3. 首頁功能</a></li>
+                <li><a href="#browse">4. 店家瀏覽與搜尋</a>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li><a href="#search">4-A. 搜尋功能</a></li>
+                        <li><a href="#location">4-B. 城市定位</a></li>
+                        <li><a href="#store-detail">4-C. 店鋪詳情完整說明</a></li>
+                    </ul>
+                </li>
+                <li><a href="#booking">5. 預約訂位流程</a></li>
+                <li><a href="#orders">6. 訂單管理</a>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li><a href="#order-in-progress">6-A. 訂單詳情（進行中）</a></li>
+                    </ul>
+                </li>
+                <li><a href="#member">7. 會員功能</a>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li><a href="#my-center">7-A. 個人中心（我的）</a></li>
+                        <li><a href="#balance">7-B. 餘額詳情</a></li>
+                        <li><a href="#tickets">7-C. 電子票券</a></li>
+                        <li><a href="#settings">7-D. 設置</a></li>
+                    </ul>
+                </li>
+                <li><a href="#payment">8. 付款方式</a></li>
+                <li><a href="#faq">9. 常見問題處理</a></li>
+                <li><a href="#privacy">10. 隱私條款與服務協議</a></li>
+                <li><a href="#franchise">11. 加盟頁面（JOIN US）</a></li>
+            </ul>
+        </div>
+
+        <!-- 1. 系統簡介 -->
+        <section id="intro">
+            <h2>1. 系統簡介</h2>
+
+            <h3>🎯 ONE聚 是什麼？</h3>
+            <div class="info-box success">
+                <h4>品牌標語</h4>
+                <p><strong>無時無刻 自助開桌</strong></p>
+                <p><strong>核心理念：</strong>歡迎加入年輕人的生活方式</p>
+            </div>
+
+            <p>ONE聚是一個整合全台桌遊店與運動場館的預約平台，提供：</p>
+            <ul>
+                <li>✅ 24小時線上預約</li>
+                <li>✅ 多種支付方式</li>
+                <li>✅ 會員優惠與票券系統</li>
+                <li>✅ 即時包廂狀態查詢</li>
+                <li>✅ 餘額儲值與管理</li>
+            </ul>
+
+            <h4>服務範圍：</h4>
+            <ul>
+                <li>🎲 <strong>桌遊店</strong>（自助麻將桌、包廂桌遊）</li>
+                <li>🏸 <strong>運動場館</strong>（羽球館、其他運動項目）</li>
+            </ul>
+        </section>
+
+        <!-- 2. 登入與註冊 -->
+        <section id="login">
+            <h2>2. 登入與註冊</h2>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_0509.PNG" alt="登入頁面" class="screenshot">
+                <p class="screenshot-caption">圖 2-1：會員登入頁面</p>
+            </div>
+
+            <h3>📱 功能說明</h3>
+            <ul>
+                <li>會員登入的入口頁面</li>
+                <li>品牌吉祥物（粉色兔子）及標語呈現</li>
+                <li>支援手機號碼 + 密碼登入</li>
+            </ul>
+
+            <h3>操作步驟</h3>
+            <ol class="step-list">
+                <li>輸入已註冊的手機號碼</li>
+                <li>輸入密碼（可點擊眼睛圖示切換顯示/隱藏）</li>
+                <li><span class="highlight">必須勾選</span>「我已閱讀並同意《隱私條款》、《使用條款》」</li>
+                <li>點擊黑色「登入」按鈕</li>
+            </ol>
+
+            <h3>輔助功能</h3>
+            <ul>
+                <li><strong>註冊</strong>：左下角，供新用戶註冊帳號</li>
+                <li><strong>忘記密碼</strong>：右下角，供忘記密碼的用戶重設</li>
+                <li><strong>返回</strong>：左上角「&lt;」可返回上一頁</li>
+            </ul>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>未勾選同意條款無法登入</li>
+                    <li>忘記密碼請引導客戶使用「忘記密碼」功能</li>
+                    <li>新用戶請引導至「註冊」頁面</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2-A. 身份驗證 -->
+        <section id="verification">
+    <h2>2-A. 身份驗證</h2>
+
+    <div class="screenshot-container">
+        <img src="screenshots/ui/2-身份验证.png" alt="身份驗證頁面" class="screenshot">
+        <p class="screenshot-caption">圖 2-A-1：身份驗證（簡訊驗證碼）</p>
+    </div>
+
+    <h3>📱 功能說明</h3>
+    <p>此為手機號碼身份驗證頁面，採用 SMS 簡訊驗證碼方式確保帳號安全。</p>
+
+    <h3>介面元素</h3>
+    <table>
+        <tr>
+            <th>元素</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>返回按鈕</td>
+            <td>左上角「&lt;」圖標，可返回上一頁</td>
+        </tr>
+        <tr>
+            <td>頁面標題</td>
+            <td>左側大字「身份驗證」</td>
+        </tr>
+        <tr>
+            <td>吉祥物圖示</td>
+            <td>右上角藍色兔子角色，帶綠色打勾徽章</td>
+        </tr>
+        <tr>
+            <td>手機號輸入框</td>
+            <td>圓角矩形輸入框,提示「請輸入手機號」</td>
+        </tr>
+        <tr>
+            <td>驗證碼輸入框</td>
+            <td>圓角矩形輸入框，提示「請輸入驗證碼」</td>
+        </tr>
+        <tr>
+            <td>發送驗證碼按鈕</td>
+            <td>驗證碼輸入框右側，藍色圓角按鈕「發送驗證碼」</td>
+        </tr>
+        <tr>
+            <td>提交按鈕</td>
+            <td>底部全寬黑色圓角按鈕，白色文字「提交」</td>
+        </tr>
+    </table>
+
+    <h3>操作步驟</h3>
+    <ol class="step-list">
+        <li>在第一個輸入框中輸入手機號碼</li>
+        <li>點擊「發送驗證碼」按鈕，系統發送 SMS 驗證碼至該手機</li>
+        <li>在第二個輸入框中輸入收到的驗證碼</li>
+        <li>點擊「提交」按鈕完成身份驗證</li>
+        <li>若需返回，可點擊左上角返回箭頭</li>
+    </ol>
+
+    <div class="info-box warning">
+        <h4>⚠️ 新員工注意事項</h4>
+        <ul>
+            <li>發送驗證碼按鈕具備<strong>倒計時功能</strong>，防止重複發送（通常 60 秒）</li>
+            <li>驗證碼有效期通常為 <strong>5-10 分鐘</strong></li>
+            <li>若客戶收不到驗證碼，請引導：
+                <ul>
+                    <li>確認手機號碼是否正確</li>
+                    <li>檢查簡訊是否被攔截（垃圾簡訊匣）</li>
+                    <li>等待倒計時結束後重新發送</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+        </section>
+
+        <!-- 3. 首頁功能 -->
+        <section id="home">
+            <h2>3. 首頁功能</h2>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_0510.PNG" alt="首頁主畫面" class="screenshot">
+                <p class="screenshot-caption">圖 3-1：APP 首頁（帳號 0840 / 北區）</p>
+            </div>
+
+            <h3>頁面結構</h3>
+
+            <h4>1. 頂部導航列</h4>
+            <ul>
+                <li><strong>左側</strong>：ONE聚 Logo + 區域選擇器（例：北區▼）</li>
+                <li><strong>右側</strong>：搜尋欄（可搜尋店家）</li>
+            </ul>
+
+            <h4>2. 橫幅廣告</h4>
+            <ul>
+                <li>品牌吉祥物及標語</li>
+                <li>「HI~你好」問候語</li>
+                <li>「歡迎加入年輕人的生活方式」</li>
+            </ul>
+
+            <h4>3. 快捷功能區</h4>
+            <ul>
+                <li>🎁 <strong>JOIN US</strong>：招收加盟商入口（<span class="highlight">注意：此功能容易與「加入會員」混淆，未來將更換文字與 UI 設計</span>）</li>
+                <li>📱 <strong>開啟會員條碼 SCAN THE CODE</strong>：顯示會員條碼供掃描繳費機使用</li>
+            </ul>
+
+            <div class="info-box warning">
+                <h4>⚠️ 客服注意</h4>
+                <p>如果客戶詢問「JOIN US」功能，請明確告知：</p>
+                <ul>
+                    <li>這是<strong>招收加盟商</strong>的入口，不是加入會員</li>
+                    <li>一般顧客使用 APP 即自動成為會員，無需額外加入</li>
+                    <li>若有加盟意願，可點擊此功能了解加盟資訊</li>
+                </ul>
+            </div>
+
+            <h4>4. 我的賬戶</h4>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>範例數值</th>
+                </tr>
+                <tr>
+                    <td>用戶名稱</td>
+                    <td>0840</td>
+                </tr>
+                <tr>
+                    <td>會員卡號</td>
+                    <td>325211</td>
+                </tr>
+                <tr>
+                    <td>電子票卷</td>
+                    <td>0 張</td>
+                </tr>
+                <tr>
+                    <td>優惠券</td>
+                    <td>1 張</td>
+                </tr>
+                <tr>
+                    <td>賬戶餘額</td>
+                    <td>$4,340</td>
+                </tr>
+            </table>
+
+            <h4>5. 分類標籤</h4>
+            <p>全部 / 桌遊 / 運動（篩選不同類型店家）</p>
+
+            <h4>6. 底部導航欄（Tab Bar）</h4>
+            <ul>
+                <li>🏠 首頁（當前選中）</li>
+                <li>📋 訂單</li>
+                <li>👤 我的</li>
+            </ul>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>區域選擇會影響店家列表顯示範圍</li>
+                    <li>賬戶餘額是<strong>全店家餘額的加總</strong>，但<strong>餘額無法跨店通用</strong></li>
+                    <li>會員條碼用於掃描繳費機的機台</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. 店家瀏覽與搜尋 -->
+        <section id="browse">
+            <h2>4. 店家瀏覽與搜尋</h2>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_0511.PNG" alt="店家列表" class="screenshot">
+                <p class="screenshot-caption">圖 4-1：店家列表頁（運動 & 桌遊混合）</p>
+            </div>
+
+            <h3>店家卡片資訊包含</h3>
+            <ul>
+                <li>📸 <strong>左側：店家自定義照片</strong>（店家可自行上傳宣傳圖片或優惠訊息）</li>
+                <li>🏪 店名</li>
+                <li>📍 距離（km，根據用戶定位計算）</li>
+                <li>🕐 營業時間</li>
+                <li>📌 地址</li>
+                <li>🏷️ 分類標籤（桌遊/運動，右上角橘色標籤）</li>
+                <li>📞 撥打電話圖示</li>
+                <li>🔵 <strong>立即預定</strong> 按鈕</li>
+            </ul>
+
+            <div class="info-box info">
+                <h4>💡 關於店家卡片</h4>
+                <ul>
+                    <li><strong>左側照片</strong>：店家可自行設計，常用於放置優惠訊息、店面照片或宣傳圖</li>
+                    <li><strong>沒有訊息圖示</strong>：目前版本不支援從店家列表直接發送訊息</li>
+                    <li><strong>沒有特色標籤</strong>：特色資訊會在店家詳情頁中完整呈現</li>
+                </ul>
+            </div>
+
+            <h3>店家範例</h3>
+            <table>
+                <tr>
+                    <th>店家名稱</th>
+                    <th>類型</th>
+                    <th>距離</th>
+                    <th>營業時間</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>超越羽球館</td>
+                    <td><span class="badge badge-info">運動</span></td>
+                    <td>56km</td>
+                    <td>00:00-00:00</td>
+                    <td>雲林縣斗南鎮（左側照片可能顯示優惠資訊）</td>
+                </tr>
+                <tr>
+                    <td>雲林虎尾店</td>
+                    <td><span class="badge badge-warning">桌遊</span></td>
+                    <td>57km</td>
+                    <td>00:00-00:00</td>
+                    <td>雲林縣虎尾鎮（24H 營業）</td>
+                </tr>
+                <tr>
+                    <td>麻上玩頭份店</td>
+                    <td><span class="badge badge-warning">桌遊</span></td>
+                    <td>65km</td>
+                    <td>00:00-00:00</td>
+                    <td>苗栗縣頭份市（24hr 自助桌遊）</td>
+                </tr>
+                <tr>
+                    <td>東海店</td>
+                    <td><span class="badge badge-warning">桌遊</span></td>
+                    <td>10km</td>
+                    <td><span class="badge badge-danger">籌備中</span></td>
+                    <td>台中市龍井區（已簽約裝修中，1-2個月內開放營業）</td>
+                </tr>
+            </table>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_0513.PNG" alt="店家詳情" class="screenshot">
+                <p class="screenshot-caption">圖 4-2：店家詳情頁（無老板逢甲店）</p>
+            </div>
+
+            <h3>店家詳情頁面結構</h3>
+
+            <div class="info-box success">
+                <h4>🎁 頂部提示橫幅</h4>
+                <p><strong>消費結束，協助整理包廂可獲得續時卷乙張</strong></p>
+                <p style="margin-top: 10px;">💡 <strong>橫幅內容：</strong>店家可自行上傳照片或設定宣傳文字，每家店可能不同。</p>
+            </div>
+
+            <h4>店家資訊區</h4>
+            <ul>
+                <li>店名：無老板逢甲店</li>
+                <li>地址：台中市西屯區文華路138巷6號2樓</li>
+                <li>📞 撥打電話</li>
+            </ul>
+
+            <h4>會員服務功能列</h4>
+            <table>
+                <tr>
+                    <td>🎫 我的票券</td>
+                    <td>💰 錢包儲值</td>
+                    <td>🎁 領優惠券</td>
+                    <td>🛒 購買票券</td>
+                </tr>
+            </table>
+
+            <h4>包廂資訊卡片</h4>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>內容</th>
+                </tr>
+                <tr>
+                    <td>包廂照片</td>
+                    <td>店家自行上傳，展示包廂實景</td>
+                </tr>
+                <tr>
+                    <td>包廂名稱</td>
+                    <td>666</td>
+                </tr>
+                <tr>
+                    <td>類型標籤</td>
+                    <td><span class="badge badge-warning">桌遊</span></td>
+                </tr>
+                <tr>
+                    <td>設備</td>
+                    <td>過山車電動麻將 / 冷暖空調 / 沙發 / VIP包廂 / 空氣淨化燈 / 藍芽音響</td>
+                </tr>
+                <tr>
+                    <td>價格</td>
+                    <td>$300 小時/起</td>
+                </tr>
+                <tr>
+                    <td>狀態</td>
+                    <td><span class="badge badge-success">🟢 空閒中</span></td>
+                </tr>
+            </table>
+            <div class="info-box info">
+                <p>💡 <strong>包廂照片：</strong>由店家自行上傳，可讓客戶直接看到包廂實際環境。</p>
+            </div>
+
+            <h4>時段表（時間軸）</h4>
+            <ul>
+                <li>🔵 藍色圓點 = 已預訂時段</li>
+                <li>⚪ 灰色圓點 = 可預訂時段</li>
+                <li>時間軸：15, 16, 17, 18...次日...1, 2, 3...</li>
+            </ul>
+
+            <h4>價格方案（套餐選項）</h4>
+            <table>
+                <tr>
+                    <th>方案名稱</th>
+                    <th>價格</th>
+                </tr>
+                <tr>
+                    <td>白天特價4H</td>
+                    <td>$600</td>
+                </tr>
+                <tr>
+                    <td>白天特價6H</td>
+                    <td>$800</td>
+                </tr>
+                <tr>
+                    <td>VIP1小時</td>
+                    <td>$300</td>
+                </tr>
+                <tr>
+                    <td>VIP3小時</td>
+                    <td>$600</td>
+                </tr>
+                <tr>
+                    <td>VIP5小時</td>
+                    <td>$800</td>
+                </tr>
+                <tr>
+                    <td>VIP7小時</td>
+                    <td>$1,000</td>
+                </tr>
+            </table>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>🟢 <strong>空閒中</strong> = 包廂目前可直接預訂</li>
+                    <li>消費結束協助整理可獲得續時券（重要優惠）</li>
+                    <li>會員等級從 Lv.0 開始，隨消費累積升級</li>
+                    <li>時間軸可快速了解未來 24 小時的預訂狀況</li>
+                </ul>
+            </div>
+
+        <h3 id="search">🔍 搜尋功能</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/9-搜索.png" alt="搜尋頁面" class="screenshot">
+            <p class="screenshot-caption">圖 4-A-1：搜尋店鋪頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>提供關鍵字搜索店鋪名稱，並記錄歷史搜索以便快速重複查詢。</p>
+
+        <h4>介面元素</h4>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>返回按鈕</td>
+                <td>左上角「&lt;」圖標</td>
+            </tr>
+            <tr>
+                <td>頁面標題</td>
+                <td>頂部居中「搜索」</td>
+            </tr>
+            <tr>
+                <td>吉祥物圖示</td>
+                <td>右上角粉白色兔子拿放大鏡</td>
+            </tr>
+            <tr>
+                <td>搜索輸入框</td>
+                <td>帶黑色邊框的圓角輸入框，左側有🔍圖標，提示「請輸入搜索店鋪名」</td>
+            </tr>
+            <tr>
+                <td>搜索按鈕</td>
+                <td>輸入框右側內嵌黑色按鈕，白色文字「搜索」</td>
+            </tr>
+            <tr>
+                <td>歷史搜索區域</td>
+                <td>標題「🕐 歷史搜索」，右側有垃圾桶圖標（清除歷史）</td>
+            </tr>
+            <tr>
+                <td>歷史標籤</td>
+                <td>灰色圓角標籤（範例：「ONE淡水店」、「ONE南崁店」）</td>
+            </tr>
+        </table>
+
+        <h4>操作步驟</h4>
+        <ol class="step-list">
+            <li>在搜索框中輸入店鋪名稱</li>
+            <li>點擊「搜索」按鈕或鍵盤確認鍵執行搜索</li>
+            <li>可點擊歷史搜索標籤快速重複搜索</li>
+            <li>點擊垃圾桶圖標可清除所有搜索歷史</li>
+            <li>點擊左上角返回按鈕回到上一頁</li>
+        </ol>
+
+        <div class="info-box info">
+            <h4>💡 搜尋小技巧</h4>
+            <ul>
+                <li>搜索對象為<strong>店鋪名稱</strong>（非桌遊名稱或地址）</li>
+                <li>支持模糊搜索（輸入部分店名即可）</li>
+                <li>歷史搜索最多顯示 10 筆</li>
+                <li>清除歷史後無法恢復</li>
+            </ul>
+        </div>
+
+        <h3 id="location">📍 城市定位</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/10-城市定位.png" alt="城市定位頁面" class="screenshot">
+            <p class="screenshot-caption">圖 4-B-1：城市定位/切換頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>用於設定用戶所在城市，系統將根據選擇的城市篩選附近門店並優先顯示。</p>
+
+        <h4>介面元素</h4>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>當前城市區塊</td>
+                <td>標題「當前城市」，下方顯示定位圖標 + 藍色文字（如「臺中市」）</td>
+            </tr>
+            <tr>
+                <td>已開通城市區塊</td>
+                <td>標題「已開通城市」，下方以標籤雲方式排列所有可選城市</td>
+            </tr>
+        </table>
+
+        <h4>已開通城市列表（共 17 個）</h4>
+        <div class="feature-section">
+            <table>
+                <tr>
+                    <th>區域</th>
+                    <th>城市</th>
+                </tr>
+                <tr>
+                    <td>北部</td>
+                    <td>基隆市、台北市、新北市、桃園市、新竹市、新竹縣</td>
+                </tr>
+                <tr>
+                    <td>中部</td>
+                    <td>苗栗縣、台中市、彰化縣、南投縣、雲林縣</td>
+                </tr>
+                <tr>
+                    <td>南部</td>
+                    <td>嘉義市、嘉義縣、台南市、高雄市、屏東縣</td>
+                </tr>
+                <tr>
+                    <td>東部</td>
+                    <td>宜蘭縣、台東縣</td>
+                </tr>
+            </table>
+        </div>
+
+        <h4>操作步驟</h4>
+        <ol class="step-list">
+            <li>系統自動偵測 GPS 定位，顯示「當前城市」</li>
+            <li>用戶可在「已開通城市」列表中點擊任一城市標籤進行切換</li>
+            <li>選擇後系統將更新首頁顯示的門店列表為該城市的門店</li>
+            <li>點擊返回按鈕回到上一頁</li>
+        </ol>
+
+        <div class="info-box warning">
+            <h4>⚠️ 新員工注意事項</h4>
+            <ul>
+                <li>結合<strong>自動定位 + 手動選擇</strong>雙模式</li>
+                <li>僅顯示「已開通」城市，暗示服務有地域限制</li>
+                <li>若客戶所在城市尚未開通，可建議選擇鄰近城市</li>
+                <li>GPS 定位需要用戶授權位置權限</li>
+            </ul>
+        </div>
+
+
+        <h3 id="store-detail">店鋪詳情頁完整功能</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/app/IMG_0513.PNG" alt="店鋪詳情頁" class="screenshot">
+            <p class="screenshot-caption">圖 4-C-1：店鋪詳情頁（無老板逢甲店）</p>
+        </div>
+
+        <h4>🔥 頂部導航列</h4>
+        <table>
+            <tr>
+                <th>位置</th>
+                <th>元素</th>
+                <th>功能</th>
+            </tr>
+            <tr>
+                <td>左側</td>
+                <td>返回按鈕（&lt;）</td>
+                <td>返回上一頁</td>
+            </tr>
+            <tr>
+                <td>中間</td>
+                <td>標題「店鋪詳情」</td>
+                <td>顯示當前頁面名稱</td>
+            </tr>
+            <tr>
+                <td>右側</td>
+                <td>分享按鈕（🔗圖標）</td>
+                <td><strong>分享店鋪連結給好友</strong></td>
+            </tr>
+        </table>
+
+        <div class="info-box success">
+            <h4>✨ 分享功能</h4>
+            <p>點擊右上角分享按鈕後，可以：</p>
+            <ul>
+                <li>分享店鋪連結到社群媒體（LINE、FB、IG 等）</li>
+                <li>複製店鋪連結</li>
+                <li>生成 QR Code 供他人掃描</li>
+            </ul>
+            <p>⚠️ <strong>注意：</strong>部分店家有開啟分享功能，部分沒有。若右上角無分享按鈕，代表該店家未開啟此功能。</p>
+        </div>
+
+        <h4>🏪 店鋪資訊卡片</h4>
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>店鋪名稱</td>
+                <td>大字顯示（如：57益智生活館東海店）</td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td>📍 圖標 + 完整地址</td>
+            </tr>
+            <tr>
+                <td>快捷圖標</td>
+                <td>🗺️ 地圖/導航 + 📞 撥打電話</td>
+            </tr>
+        </table>
+
+        <h4>🎯 功能快捷入口</h4>
+        <p>店鋪資訊下方有 <strong>4-5 個快捷圖標</strong>（依店家設定而異）：</p>
+        <table>
+            <tr>
+                <th>圖標</th>
+                <th>功能</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>📋</td>
+                <td>我的票券</td>
+                <td>查看該店的可用票券</td>
+            </tr>
+            <tr>
+                <td>💰</td>
+                <td>錢包儲值</td>
+                <td>為該店餘額進行儲值</td>
+            </tr>
+            <tr>
+                <td>🎁</td>
+                <td>領優惠券</td>
+                <td>領取店家發放的優惠券</td>
+            </tr>
+            <tr>
+                <td>🎟️</td>
+                <td>購買票券</td>
+                <td>購買店家提供的優惠票券</td>
+            </tr>
+            <tr>
+                <td>👥</td>
+                <td>分享好友</td>
+                <td>分享店鋪給朋友（另一種分享方式）</td>
+            </tr>
+        </table>
+
+        <h4>⭐ 會員資訊</h4>
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>會員等級</td>
+                <td>顯示會員等級徽章（如：Lv.1）+ 顏色標示（橙色/金色等）</td>
+            </tr>
+            <tr>
+                <td>本店餘額</td>
+                <td>顯示該店的可用餘額（如：$5.3）</td>
+            </tr>
+        </table>
+
+        <div class="info-box info">
+            <h4>💡 會員等級說明</h4>
+            <p>會員等級根據在該店的<strong>消費累積</strong>計算：</p>
+            <ul>
+                <li><strong>Lv.0</strong>：新會員（橙色）</li>
+                <li><strong>Lv.1</strong>：消費達 $X（橙色 → 金色）</li>
+                <li>等級越高，享有的折扣優惠越多</li>
+                <li>每家店的會員等級<strong>獨立計算</strong></li>
+            </ul>
+        </div>
+
+        <h4>🏠 本店座位 / 包廂列表</h4>
+
+        <h5>「只看空閒房間」開關</h5>
+        <p>位於「本店座位」標題右側，提供快速篩選功能：</p>
+        <table>
+            <tr>
+                <th>狀態</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>開啟（ON）</td>
+                <td>僅顯示<strong>目前空閒</strong>的包廂，隱藏使用中或已預訂的包廂</td>
+            </tr>
+            <tr>
+                <td>關閉（OFF）</td>
+                <td>顯示<strong>所有包廂</strong>，包含使用中和已預訂的包廂</td>
+            </tr>
+        </table>
+
+        <h5>包廂卡片資訊</h5>
+        <p>每個包廂以卡片形式呈現，包含：</p>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>包廂照片</td>
+                <td>店家自行上傳，展示包廂實景</td>
+            </tr>
+            <tr>
+                <td>包廂名稱</td>
+                <td>如：103、天麻星空、運動大包</td>
+            </tr>
+            <tr>
+                <td>類型標籤</td>
+                <td><span class="badge badge-warning">桌遊</span> 或 <span class="badge badge-info">運動</span></td>
+            </tr>
+            <tr>
+                <td>設備標籤</td>
+                <td>過山車電動麻將、冷暖空調、VIP包廂、茶几、高背椅子、藍芽音響等</td>
+            </tr>
+            <tr>
+                <td>價格</td>
+                <td>$150 小時/起（起始價格）</td>
+            </tr>
+            <tr>
+                <td>狀態標籤</td>
+                <td><span class="badge badge-success">🟢 空閒中</span> 或 <span class="badge badge-danger">🔴 使用中</span></td>
+            </tr>
+            <tr>
+                <td>結束時間</td>
+                <td>若為「使用中」，會顯示結束時間（如：00:59:48結束）</td>
+            </tr>
+            <tr>
+                <td>立即預定按鈕</td>
+                <td>黑色圓角按鈕</td>
+            </tr>
+        </table>
+
+        <h5>⏰ 時間軸（Timeline）</h5>
+        <p>每個包廂卡片下方有<strong>視覺化時間軸</strong>，顯示 24 小時的預訂狀況：</p>
+
+        <table>
+            <tr>
+                <th>顏色</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td style="background: #4a90e2; color: white;">🔵 藍色</td>
+                <td><strong>已預訂</strong>時段（包含目前使用中）</td>
+            </tr>
+            <tr>
+                <td style="background: #ddd;">⚪ 灰色</td>
+                <td><strong>可預訂</strong>時段</td>
+            </tr>
+            <tr>
+                <td style="background: #ffa500; color: white;">🟡 橙色</td>
+                <td><strong>使用中</strong>時段（當前正在使用）</td>
+            </tr>
+        </table>
+
+        <p><strong>時間刻度：</strong>從當前時間開始，顯示 24 小時（例：10, 11, 12...次日 1, 2, 3...9, 10）</p>
+
+        <div class="info-box info">
+            <h4>💡 時間軸使用技巧</h4>
+            <ul>
+                <li>快速了解包廂未來 24 小時的預訂狀況</li>
+                <li>藍色區塊越多 = 該包廂越熱門</li>
+                <li>灰色空檔 = 可預訂時段</li>
+                <li>可協助客戶選擇合適的時段</li>
+            </ul>
+        </div>
+
+        <h5>💰 價格方案</h5>
+        <p>每個包廂下方展開多個<strong>時長/價格選項</strong>：</p>
+
+        <div class="feature-section">
+            <h6>範例：57益智生活館東海店 - 103 包廂</h6>
+            <table>
+                <tr>
+                    <th>方案名稱</th>
+                    <th>價格</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>早場優惠8H</td>
+                    <td><span class="highlight">$400</span></td>
+                    <td>早鳥特價（限定時段）</td>
+                </tr>
+                <tr>
+                    <td>外場一小時</td>
+                    <td>$150</td>
+                    <td>單小時價格</td>
+                </tr>
+                <tr>
+                    <td>外場買2送1</td>
+                    <td>$300</td>
+                    <td>購買 2 小時送 1 小時（共 3 小時）</td>
+                </tr>
+                <tr>
+                    <td>外場買4送1</td>
+                    <td>$400</td>
+                    <td>購買 4 小時送 1 小時（共 5 小時）</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-box warning">
+            <h4>⚠️ 價格方案注意事項</h4>
+            <ul>
+                <li>每家店、每個包廂的價格方案<strong>可能不同</strong></li>
+                <li>早鳥/限時優惠方案可能有<strong>時段限制</strong>（如：僅限早上 10:00 前）</li>
+                <li>若方案顯示<strong>灰色（無法點選）</strong>，代表不符合使用條件（時段、會員等級等）</li>
+                <li>買送方案的總時長已包含贈送時數</li>
+            </ul>
+        </div>
+        </section>
+
+        <!-- 5. 預約訂位流程 -->
+        <section id="booking">
+            <h2>5. 預約訂位流程</h2>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_5733.PNG" alt="預約步驟1-3" class="screenshot">
+                <p class="screenshot-caption">圖 5-1：立即預定（步驟 01-03）</p>
+            </div>
+
+            <h3>步驟 01 - 確認可預約時間</h3>
+            <ul>
+                <li>顯示未來 <strong>60 天（兩個月）</strong>的時段狀態</li>
+                <li>🔵 藍色圓點 = 已預訂時段</li>
+                <li>⚪ 灰色圓點 = 可預訂時段</li>
+                <li>可左右滑動查看更多日期</li>
+            </ul>
+            <div class="info-box info">
+                <p>💡 <strong>預約範圍：</strong>目前系統開放預約兩個月內的座位。</p>
+            </div>
+
+            <h3>步驟 02 - 選擇開始時間</h3>
+            <ol>
+                <li><strong>開始日期</strong>：下拉選單（例：02/25）</li>
+                <li><strong>開始時間</strong>：下拉選單（例：21:21）</li>
+            </ol>
+
+            <h3>步驟 03 - 選擇時長</h3>
+            <p><strong>店家範例：萬波</strong></p>
+            <table>
+                <tr>
+                    <th>方案名稱</th>
+                    <th>價格</th>
+                </tr>
+                <tr>
+                    <td>早鳥特價 5H</td>
+                    <td>$400</td>
+                </tr>
+                <tr>
+                    <td>開放 1H</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>開放 3H</td>
+                    <td>$350</td>
+                </tr>
+                <tr>
+                    <td>開放 4H</td>
+                    <td>$400</td>
+                </tr>
+                <tr>
+                    <td>開放 6H</td>
+                    <td>$600</td>
+                </tr>
+                <tr>
+                    <td>開放 8H</td>
+                    <td>$750</td>
+                </tr>
+            </table>
+
+            <div class="info-box info">
+                <p>💡 <strong>提示：</strong>早鳥特價 5H 與開放 4H 同為 $400，早鳥更划算！</p>
+            </div>
+
+            <div class="info-box warning">
+                <h4>⚠️ 套票顯示灰色</h4>
+                <p>如果某個套票方案顯示為<strong>灰色（無法點選）</strong>，代表：</p>
+                <ul>
+                    <li>已經超過該套票的可購買時間</li>
+                    <li>例如：早鳥特價僅限早上 10:00 前購買</li>
+                    <li>或該時段不符合套票使用條件</li>
+                </ul>
+            </div>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_5734.PNG" alt="預約步驟4-5" class="screenshot">
+                <p class="screenshot-caption">圖 5-2：立即預定（步驟 04-05）</p>
+            </div>
+
+            <h3>步驟 04 - 選擇票券</h3>
+            <ol>
+                <li><strong>優惠卷</strong>：點擊「選擇優惠卷 &gt;」進入選擇頁面</li>
+                <li><strong>電子票券</strong>：點擊「選擇電子票券 &gt;」進入選擇頁面</li>
+                <li><strong>會員折扣</strong>：自動顯示會員等級對應的折扣</li>
+            </ol>
+
+            <h3>步驟 05 - 付款方式</h3>
+            <ul>
+                <li>☑️ <strong>餘額抵扣（）</strong>：可勾選使用帳戶餘額</li>
+                <li>💰 <strong>總計金額</strong>：顯示最終需支付金額</li>
+                <li>💳 <strong>Apple pay/信用卡/轉帳/超商</strong>：第三方支付</li>
+                <li>💚 <strong>Line Pay</strong>：Line Pay 行動支付</li>
+            </ul>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_5735.PNG" alt="日期選擇" class="screenshot">
+                <p class="screenshot-caption">圖 5-3：日期選擇器</p>
+            </div>
+
+            <h3>日期選擇器</h3>
+            <p>點擊步驟 02「開始日期」欄位後，從底部彈出月曆選擇器。</p>
+            <ol class="step-list">
+                <li>點擊「開始日期」下拉選單</li>
+                <li>彈出月曆視窗</li>
+                <li>可左右切換月份</li>
+                <li>點擊欲選擇的日期</li>
+                <li>點擊「確定」完成選擇</li>
+            </ol>
+
+            <h3>時間選擇器（滾輪式選擇器）</h3>
+            <p>點擊步驟 02「開始時間」欄位後，從底部彈出 iOS 風格滾輪式時間選擇器。</p>
+            
+            <h4>介面元素</h4>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>取消按鈕</td>
+                    <td>左上角，點擊後關閉選擇器，不保存變更</td>
+                </tr>
+                <tr>
+                    <td>標題</td>
+                    <td>中間顯示「請選擇開始時間」</td>
+                </tr>
+                <tr>
+                    <td>確定按鈕</td>
+                    <td>右上角藍色按鈕，點擊後確認選擇</td>
+                </tr>
+                <tr>
+                    <td>滾輪選擇器</td>
+                    <td>中間區域，上下滑動選擇小時數（如：20時）</td>
+                </tr>
+                <tr>
+                    <td>背景遮罩</td>
+                    <td>頁面其他區域變暗，形成視覺焦點</td>
+                </tr>
+            </table>
+
+            <h4>操作步驟</h4>
+            <ol class="step-list">
+                <li>點擊「開始時間」欄位</li>
+                <li>底部彈出滾輪式時間選擇器</li>
+                <li>上下滑動滾輪選擇所需小時（0-23 時）</li>
+                <li>點擊「確定」完成選擇並關閉選擇器</li>
+                <li>或點擊「取消」放棄變更並關閉</li>
+            </ol>
+
+            <div class="info-box info">
+                <h4>💡 設計特點</h4>
+                <ul>
+                    <li>採用 iOS 原生滾輪式選擇器風格</li>
+                    <li>中間行高亮顯示當前選中的時間</li>
+                    <li>支援快速滑動快速選擇</li>
+                    <li>提供視覺回饋，操作直覺</li>
+                </ul>
+            </div>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_5736.PNG" alt="訂單確認" class="screenshot">
+                <p class="screenshot-caption">圖 5-4：訂單保留確認提示</p>
+            </div>
+
+            <h3>訂單保留確認</h3>
+            <div class="info-box warning">
+                <h4>⚠️ 注意</h4>
+                <p><strong>訂單保留10分鐘，請在10分鐘內繳費完成</strong></p>
+            </div>
+
+            <ol class="step-list">
+                <li>完成步驟 01-05 所有設定</li>
+                <li>點擊底部「結帳」按鈕</li>
+                <li>系統彈出「注意」提示</li>
+                <li>點擊「確認」進入付款流程</li>
+                <li>或點擊「取消」返回預定頁面</li>
+            </ol>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_5737.PNG" alt="餘額抵扣" class="screenshot">
+                <p class="screenshot-caption">圖 5-5：餘額全額抵扣範例</p>
+            </div>
+
+            <h3>餘額全額抵扣範例</h3>
+            <div class="info-box success">
+                <h4>✅ 使用情境</h4>
+                <p>帳戶餘額 $3,144 足以支付 $650 訂單</p>
+                <ul>
+                    <li>選擇方案：小包四小 $650</li>
+                    <li>勾選「餘額抵扣」：- $650</li>
+                    <li><strong>總計金額：$0</strong></li>
+                </ul>
+                <p>無需再選擇其他付款方式，直接點擊「結帳」即可完成訂單。</p>
+            </div>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>⏰ 訂單僅保留 10 分鐘，超時自動取消</li>
+                    <li>優惠券與電子票券可疊加使用（視店家規定）</li>
+                    <li>會員折扣為系統自動帶入</li>
+                    <li>餘額抵扣可與其他付款方式搭配</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. 訂單管理 -->
+        <section id="orders">
+            <h2>6. 訂單管理</h2>
+
+            <div class="screenshot-container">
+                <img src="screenshots/app/IMG_0512.PNG" alt="訂單列表" class="screenshot">
+                <p class="screenshot-caption">圖 6-1：訂單列表頁</p>
+            </div>
+
+            <h3>頂部篩選標籤</h3>
+            <table>
+                <tr>
+                    <th>標籤</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td><strong>全部</strong></td>
+                    <td>顯示所有訂單</td>
+                </tr>
+                <tr>
+                    <td>待付款</td>
+                    <td>尚未完成付款的訂單</td>
+                </tr>
+                <tr>
+                    <td>待使用</td>
+                    <td>已付款尚未到使用時間</td>
+                </tr>
+                <tr>
+                    <td>進行中</td>
+                    <td>目前正在使用中的訂單</td>
+                </tr>
+                <tr>
+                    <td>已取消</td>
+                    <td>已被取消的訂單</td>
+                </tr>
+                <tr>
+                    <td>已完成</td>
+                    <td>已使用完畢的訂單</td>
+                </tr>
+            </table>
+
+            <h3>訂單卡片資訊</h3>
+            <p>每筆訂單顯示：</p>
+            <ul>
+                <li>店家名稱</li>
+                <li>包廂照片縮圖</li>
+                <li>包廂名稱</li>
+                <li>訂單編號（如 OR1756396580979138）</li>
+                <li>開始日期時間 → 時長 → 結束日期時間</li>
+                <li>支付金額（橘色）</li>
+                <li>下單時間</li>
+                <li>狀態標籤（已取消/已使用/已退款）</li>
+                <li>「取消」按鈕（視狀態顯示）</li>
+            </ul>
+
+            <h3>訂單範例</h3>
+            <div class="feature-section">
+                <h4>訂單 1：</h4>
+                <ul>
+                    <li>店家：測試用桌遊店</li>
+                    <li>包廂：球場 D</li>
+                    <li>訂單號：OR1756396580979138</li>
+                    <li>時間：2025-08-29 週五 00:10 ~ 04:10</li>
+                    <li>時長：4 小時</li>
+                    <li>支付金額：<span class="highlight">$650</span></li>
+                    <li>下單時間：2025-08-28 23:56</li>
+                    <li>狀態：<span class="badge badge-success">已取消</span></li>
+                </ul>
+            </div>
+
+            <div class="feature-section">
+                <h4>訂單 2：</h4>
+                <ul>
+                    <li>店家：測試用桌遊店</li>
+                    <li>包廂：111</li>
+                    <li>訂單號：OR1756390933383872</li>
+                    <li>時間：2025-08-28 週四 22:22 ~ 2025-08-29 週五 00:22</li>
+                    <li>時長：2 小時</li>
+                    <li>支付金額：<span class="highlight">$0</span></li>
+                    <li>下單時間：2025-08-28 22:22</li>
+                    <li>狀態：<span class="badge badge-success">已使用</span></li>
+                </ul>
+            </div>
+
+            <h3>操作步驟</h3>
+            <ol class="step-list">
+                <li>點擊底部導航列「訂單」進入</li>
+                <li>預設顯示「全部」標籤</li>
+                <li>點擊頂部標籤切換篩選</li>
+                <li>上下滑動瀏覽訂單</li>
+                <li>點擊訂單卡片查看詳情</li>
+            </ol>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>訂單按下單時間由新到舊排列</li>
+                    <li>$0 訂單可能使用電子票券或餘額全額抵扣</li>
+                    <li>訂單編號為唯一識別碼，客服查詢時需要</li>
+                    <li>「已取消」訂單可能仍顯示「取消」按鈕（二次確認）</li>
+                </ul>
+            </div>
+
+            <h3 id="order-in-progress">6-A. 訂單詳情（進行中）</h3>
+
+            <div class="info-box success">
+                <h4>✨ 重要功能頁面</h4>
+                <p>這是用戶到店消費時<strong>最常使用的頁面</strong>，包含門鎖控制和電器管理等核心功能。</p>
+            </div>
+
+            <h4>📱 頂部導航列</h4>
+            <table>
+                <tr>
+                    <th>位置</th>
+                    <th>元素</th>
+                    <th>功能</th>
+                </tr>
+                <tr>
+                    <td>左側</td>
+                    <td>返回按鈕（&lt;）</td>
+                    <td>返回訂單列表</td>
+                </tr>
+                <tr>
+                    <td>中間</td>
+                    <td>標題「訂單詳情」</td>
+                    <td>顯示當前頁面名稱</td>
+                </tr>
+            </table>
+
+            <h4>📦 訂單狀態</h4>
+            <div class="feature-section" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 20px; border-radius: 10px;">
+                <h3 style="color: white; background: none; margin: 0 0 10px 0; padding: 0;">🟢 進行中</h3>
+                <p style="margin: 0;">訂單正在使用中，可使用門鎖和電器控制功能</p>
+            </div>
+
+            <h4>🎯 預約訂單資訊</h4>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>說明</th>
+                    <th>範例</th>
+                </tr>
+                <tr>
+                    <td>包廂資訊</td>
+                    <td>包廂照片 + 名稱 + 店家名稱</td>
+                    <td>111 包廂<br>測試用桌遊店</td>
+                </tr>
+                <tr>
+                    <td>開始時間</td>
+                    <td>藍色卡片顯示日期和時間</td>
+                    <td>2026-02-25 週三<br>21:18</td>
+                </tr>
+                <tr>
+                    <td>使用時長</td>
+                    <td>中間顯示總時數</td>
+                    <td>4.0小時</td>
+                </tr>
+                <tr>
+                    <td>結束時間</td>
+                    <td>藍色卡片顯示日期和時間</td>
+                    <td>2026-02-26 週四<br>01:18</td>
+                </tr>
+                <tr>
+                    <td>更多訂單資訊</td>
+                    <td>可展開查看完整訂單詳情</td>
+                    <td>點擊「更多訂單資訊 ▼」</td>
+                </tr>
+            </table>
+
+            <h4>🔐 門鎖控制區</h4>
+            <div class="feature-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px;">
+                <h3 style="color: white; background: none; margin: 0 0 15px 0; padding: 0;">🚪 核心功能：門鎖控制</h3>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">用戶到達包廂後，透過此區塊開啟門鎖</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>門鎖標題</td>
+                    <td>左側顯示「🚪 門鎖」</td>
+                </tr>
+                <tr>
+                    <td>密碼顯示</td>
+                    <td>顯示門鎖密碼（如：<code>密碼：154027#</code>）</td>
+                </tr>
+                <tr>
+                    <td>開門按鈕</td>
+                    <td>右側黑色圓角按鈕，白色文字「開門」</td>
+                </tr>
+            </table>
+
+            <h5>門鎖操作流程</h5>
+            <ol class="step-list">
+                <li>用戶到達店內，找到預訂的包廂</li>
+                <li>查看訂單詳情頁面的門鎖密碼</li>
+                <li><strong>方式 1（推薦）</strong>：點擊「開門」按鈕，系統發送開門指令，門鎖自動開啟</li>
+                <li><strong>方式 2（備用）</strong>：手動在門鎖輸入密碼（如：154027#），按確認鍵開門</li>
+                <li>進入包廂開始使用</li>
+            </ol>
+
+            <div class="info-box warning">
+                <h4>⚠️ 門鎖功能注意事項</h4>
+                <ul>
+                    <li>僅在<strong>訂單進行中</strong>時才會顯示門鎖密碼和開門按鈕</li>
+                    <li>開門按鈕需要<strong>網路連線</strong>才能發送指令</li>
+                    <li>若開門按鈕無反應，請引導客戶：
+                        <ul>
+                            <li>檢查網路連線是否正常</li>
+                            <li>確認訂單狀態為「進行中」</li>
+                            <li>使用備用方式：手動輸入密碼開門</li>
+                            <li>若仍無法開門，請聯繫店家或客服</li>
+                        </ul>
+                    </li>
+                    <li>密碼為<strong>一次性密碼</strong>，每筆訂單密碼不同</li>
+                </ul>
+            </div>
+
+            <h4>💡 電器控制區</h4>
+            <p>提供包廂內電器設備的遠端控制功能。</p>
+
+            <table>
+                <tr>
+                    <th>電器名稱</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>🔌 單路</td>
+                    <td>控制包廂主要電源開關</td>
+                </tr>
+                <tr>
+                    <td>💡 電路(1)</td>
+                    <td>控制第一組燈光或電器</td>
+                </tr>
+                <tr>
+                    <td>💡 電路(2)</td>
+                    <td>控制第二組燈光或電器</td>
+                </tr>
+                <tr>
+                    <td>💡 電路(3)</td>
+                    <td>控制第三組燈光或電器</td>
+                </tr>
+            </table>
+
+            <h5>電器控制操作</h5>
+            <ol class="step-list">
+                <li>進入包廂後，打開訂單詳情頁面</li>
+                <li>滑動到電器控制區</li>
+                <li>點擊右側開關按鈕（Toggle）切換電器狀態</li>
+                <li>開關變為藍色 = 開啟，灰色 = 關閉</li>
+                <li>系統即時發送控制指令到包廂設備</li>
+            </ol>
+
+            <div class="info-box info">
+                <h4>💡 電器控制說明</h4>
+                <ul>
+                    <li>不同店家的電路配置可能不同</li>
+                    <li>部分店家可能只有部分電路開放控制</li>
+                    <li>電器名稱由店家自訂（如：「冷氣」、「燈光」、「音響」）</li>
+                    <li>需要網路連線才能控制</li>
+                </ul>
+            </div>
+
+            <h4>🛠️ 底部操作列</h4>
+            <table>
+                <tr>
+                    <th>按鈕</th>
+                    <th>圖標</th>
+                    <th>功能</th>
+                </tr>
+                <tr>
+                    <td>編輯</td>
+                    <td>📝</td>
+                    <td>修改訂單資訊（如：延長時間）</td>
+                </tr>
+                <tr>
+                    <td>更換位置</td>
+                    <td>📍</td>
+                    <td>更換包廂（需店家同意且有空閒包廂）</td>
+                </tr>
+                <tr>
+                    <td>提前離店</td>
+                    <td>🚪</td>
+                    <td>提前結束訂單並離開</td>
+                </tr>
+            </table>
+
+            <h5>底部操作說明</h5>
+            <div class="feature-section">
+                <h4>📝 編輯訂單</h4>
+                <ul>
+                    <li><strong>延長時間：</strong>若想繼續使用，可延長訂單時長</li>
+                    <li><strong>系統檢查：</strong>自動檢查後續時段是否空閒</li>
+                    <li><strong>補差額：</strong>需補繳延長時段的費用</li>
+                </ul>
+
+                <h4>📍 更換位置</h4>
+                <ul>
+                    <li><strong>使用情境：</strong>包廂設備故障或想換更大的包廂</li>
+                    <li><strong>條件：</strong>店內有其他空閒包廂</li>
+                    <li><strong>差價處理：</strong>價格較高需補差額，較低則退回餘額</li>
+                </ul>
+
+                <h4>🚪 提前離店</h4>
+                <ul>
+                    <li><strong>使用情境：</strong>提早結束，不需使用完整時段</li>
+                    <li><strong>退款規則：</strong>依店家政策，可能部分退款或轉為餘額</li>
+                    <li><strong>注意：</strong>點擊後訂單立即結束，門鎖將無法開啟</li>
+                </ul>
+            </div>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工重點提示</h4>
+                <ul>
+                    <li>此頁面僅在<strong>訂單進行中</strong>時顯示完整功能</li>
+                    <li>門鎖密碼和開門按鈕是<strong>最常被詢問</strong>的功能</li>
+                    <li>電器控制需要<strong>網路連線</strong>，離線無法使用</li>
+                    <li>提前離店可能影響退款，請先確認店家政策</li>
+                    <li>更換位置需店家確認，並非所有時段都可更換</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 7. 會員功能 -->
+        <section id="member">
+            <h2>7. 會員功能</h2>
+
+            <h3>👤 會員資訊展示</h3>
+
+            <div class="feature-section">
+                <h4>帳號 0840 範例</h4>
+                <table>
+                    <tr>
+                        <th>項目</th>
+                        <th>數值</th>
+                    </tr>
+                    <tr>
+                        <td>用戶名稱</td>
+                        <td>0840</td>
+                    </tr>
+                    <tr>
+                        <td>會員卡號</td>
+                        <td>325211</td>
+                    </tr>
+                    <tr>
+                        <td>會員等級</td>
+                        <td>Lv.0</td>
+                    </tr>
+                    <tr>
+                        <td>電子票卷</td>
+                        <td>0 張</td>
+                    </tr>
+                    <tr>
+                        <td>優惠券</td>
+                        <td>1 張</td>
+                    </tr>
+                    <tr>
+                        <td>賬戶餘額</td>
+                        <td>$4,340</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>會員服務功能</h3>
+            <p>從店家詳情頁可使用：</p>
+            <table>
+                <tr>
+                    <th>功能</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>🎫 我的票券</td>
+                    <td>查看已購買或獲贈的票券</td>
+                </tr>
+                <tr>
+                    <td>💰 錢包儲值</td>
+                    <td>為帳戶餘額進行儲值</td>
+                </tr>
+                <tr>
+                    <td>🎁 領優惠券</td>
+                    <td>領取店家或平台發放的優惠券</td>
+                </tr>
+                <tr>
+                    <td>🛒 購買票券</td>
+                    <td>購買店家提供的優惠票券</td>
+                </tr>
+            </table>
+
+            <h3>會員條碼</h3>
+            <p>從首頁點擊「開啟會員條碼 SCAN THE CODE」可顯示會員條碼，供店家掃描核銷。</p>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>會員等級影響折扣優惠</li>
+                    <li>電子票券與優惠券不同，使用方式各異</li>
+                    <li><strong>本店餘額僅限該店使用，餘額無法跨店通用</strong></li>
+                    <li>賬戶餘額是所有店家餘額的加總，顯示在首頁</li>
+                    <li>會員條碼用於掃描繳費機，不是給店家掃描</li>
+                </ul>
+            </div>
+
+
+        <h3 id="my-center">👤 個人中心（我的）</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/11-我的.png" alt="個人中心頁面" class="screenshot">
+            <p class="screenshot-caption">圖 7-A-1：個人中心（我的）頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>個人中心為 APP 的核心管理頁面，整合帳戶資訊、常用功能及系統設定。</p>
+
+        <h4>頁面結構</h4>
+
+        <h5>1. 頂部用戶資訊區</h5>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>用戶名稱</td>
+                <td>大字顯示（如：我是小ONE）</td>
+            </tr>
+            <tr>
+                <td>會員卡號</td>
+                <td>灰色小字顯示（如：會員卡號:323432）</td>
+            </tr>
+            <tr>
+                <td>頭像</td>
+                <td>右側圓形兔子吉祥物頭像（黃色背景）</td>
+            </tr>
+        </table>
+
+        <h5>2. 我的賬戶卡片</h5>
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>電子票卷</td>
+                <td>持有的電子票券數量（可點擊查看詳情）</td>
+            </tr>
+            <tr>
+                <td>優惠券</td>
+                <td>持有的優惠券數量（可點擊查看詳情）</td>
+            </tr>
+            <tr>
+                <td>賬戶餘額</td>
+                <td>全店家餘額加總（可點擊查看各店餘額詳情）</td>
+            </tr>
+        </table>
+
+        <h5>3. 常用功能（4個圖標按鈕）</h5>
+        <table>
+            <tr>
+                <th>功能</th>
+                <th>圖標</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>我要充值</td>
+                <td>黃色角色戴墨鏡</td>
+                <td>為賬戶餘額進行儲值</td>
+            </tr>
+            <tr>
+                <td>我的訂單</td>
+                <td>黃色角色</td>
+                <td>查看所有訂單記錄</td>
+            </tr>
+            <tr>
+                <td>我要加盟</td>
+                <td>藍色兔子角色</td>
+                <td>了解加盟資訊（同 JOIN US）</td>
+            </tr>
+            <tr>
+                <td>聯繫客服</td>
+                <td>藍色魚角色</td>
+                <td>聯繫線上客服</td>
+            </tr>
+        </table>
+
+        <h5>4. 其他設定列表</h5>
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>關於我們</td>
+                <td>查看 APP 介紹、公司資訊</td>
+            </tr>
+            <tr>
+                <td>修改密碼</td>
+                <td>變更登入密碼</td>
+            </tr>
+            <tr>
+                <td>版本</td>
+                <td>顯示當前 APP 版本號（如：V1.3.2）</td>
+            </tr>
+            <tr>
+                <td>刪除賬號</td>
+                <td><strong>注意賬號無法恢復，請謹慎操作</strong></td>
+            </tr>
+            <tr>
+                <td>登出</td>
+                <td>退出登入狀態</td>
+            </tr>
+        </table>
+
+        <h5>5. 底部 Tab Bar（3個標籤）</h5>
+        <table>
+            <tr>
+                <th>Tab</th>
+                <th>圖標</th>
+                <th>功能</th>
+            </tr>
+            <tr>
+                <td>首頁</td>
+                <td>房子圖標</td>
+                <td>返回首頁</td>
+            </tr>
+            <tr>
+                <td>訂單</td>
+                <td>票據圖標</td>
+                <td>查看訂單列表</td>
+            </tr>
+            <tr>
+                <td>我的</td>
+                <td>兔子圖標</td>
+                <td><strong>個人中心（當前頁面，高亮顯示）</strong></td>
+            </tr>
+        </table>
+
+        <div class="info-box warning">
+            <h4>⚠️ 重要功能說明</h4>
+            <h5>刪除賬號</h5>
+            <ul>
+                <li>此操作<strong>無法恢復</strong></li>
+                <li>刪除後將失去：
+                    <ul>
+                        <li>所有訂單記錄</li>
+                        <li>賬戶餘額（未使用完的餘額將無法退款）</li>
+                        <li>電子票券與優惠券</li>
+                        <li>會員等級與積分</li>
+                    </ul>
+                </li>
+                <li>建議客戶<strong>謹慎操作</strong>，若僅是不想使用，可選擇「登出」而非刪除</li>
+            </ul>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 7-B. 餘額詳情頁 -->
+        <!-- ========================================= -->
+
+        <h3 id="balance">💰 餘額詳情</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/13-余额.png" alt="餘額詳情頁面" class="screenshot">
+            <p class="screenshot-caption">圖 7-B-1：餘額詳情頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>展示用戶在各門店的儲值餘額，採用卡片式佈局，方便管理與儲值。</p>
+
+        <h4>頁面元素</h4>
+
+        <h5>頂部餘額總覽卡片</h5>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>總餘額顯示</td>
+                <td>黑色漸層卡片，大字顯示「餘額：$5.3」（全店家加總）</td>
+            </tr>
+            <tr>
+                <td>消費記錄入口</td>
+                <td>卡片右側「消費記錄 &gt;」按鈕，可查看消費明細</td>
+            </tr>
+            <tr>
+                <td>品牌 Logo</td>
+                <td>卡片下方「ONE聚」品牌標識，帶條碼裝飾</td>
+            </tr>
+        </table>
+
+        <h5>門店餘額列表</h5>
+        <p>每一條門店記錄包含：</p>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>門店圖標</td>
+                <td>紫色「ONE聚」標識小圖標</td>
+            </tr>
+            <tr>
+                <td>門店名稱</td>
+                <td>如：台中站前店</td>
+            </tr>
+            <tr>
+                <td>餘額</td>
+                <td>該店的可用餘額（如：$5.3）</td>
+            </tr>
+            <tr>
+                <td>去儲值按鈕</td>
+                <td>黑色圓角按鈕「去储值」</td>
+            </tr>
+        </table>
+
+        <h4>操作步驟</h4>
+        <ol class="step-list">
+            <li>進入餘額頁面查看總餘額</li>
+            <li>點擊「消費記錄 &gt;」查看消費明細</li>
+            <li>查看各門店的個別餘額</li>
+            <li>點擊對應門店的「去储值」按鈕進行該門店的充值操作</li>
+        </ol>
+
+        <div class="info-box warning">
+            <h4>⚠️ 重要提醒</h4>
+            <ul>
+                <li><strong>餘額按門店分開管理</strong>，無法跨店通用</li>
+                <li>總餘額 = 各店餘額的加總，僅供參考</li>
+                <li>儲值時請注意選擇<strong>正確的門店</strong></li>
+                <li>未使用完的餘額無法轉移或退款（除非有特殊規定）</li>
+            </ul>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 7-C. 電子票券頁 -->
+        <!-- ========================================= -->
+
+        <h3 id="tickets">🎫 電子票券</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/15-電子票卷.png" alt="電子票券頁面" class="screenshot">
+            <p class="screenshot-caption">圖 7-C-1：電子票券管理頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>管理用戶持有的電子票券，以標籤頁（Tab）分類展示不同狀態的票券。</p>
+
+        <h4>頁面元素</h4>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>返回按鈕</td>
+                <td>左上角「&lt;」</td>
+            </tr>
+            <tr>
+                <td>頁面標題</td>
+                <td>「電子票卷」</td>
+            </tr>
+            <tr>
+                <td>標籤頁</td>
+                <td>未使用 / 已使用 / 已過期（可切換）</td>
+            </tr>
+            <tr>
+                <td>票券卡片</td>
+                <td>顯示票券名稱、使用規則、有效期限等資訊</td>
+            </tr>
+        </table>
+
+        <h4>票券狀態</h4>
+        <table>
+            <tr>
+                <th>狀態</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>未使用</td>
+                <td>可用的電子票券（有效期限內）</td>
+            </tr>
+            <tr>
+                <td>已使用</td>
+                <td>已核銷的電子票券</td>
+            </tr>
+            <tr>
+                <td>已過期</td>
+                <td>超過有效期限的電子票券（無法使用）</td>
+            </tr>
+        </table>
+
+        <div class="info-box info">
+            <h4>💡 電子票券使用說明</h4>
+            <ul>
+                <li>電子票券<strong>僅限指定店家</strong>使用</li>
+                <li>部分票券有<strong>使用條件</strong>（如：限平日、限特定時段等）</li>
+                <li>預訂時系統會自動提示可用票券</li>
+                <li>已過期的票券無法使用或退款</li>
+                <li>票券轉讓規定依各店家而異</li>
+            </ul>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 7-D. 設置頁面 -->
+        <!-- ========================================= -->
+
+        <h3 id="settings">⚙️ 設置</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/16-设置.png" alt="設置頁面" class="screenshot">
+            <p class="screenshot-caption">圖 7-D-1：設置頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>系統設定頁面，提供帳戶管理、通知設定、隱私設定等功能。</p>
+
+        <h4>設定項目（範例）</h4>
+        <table>
+            <tr>
+                <th>分類</th>
+                <th>項目</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td rowspan="3">帳戶設定</td>
+                <td>修改頭像</td>
+                <td>更換個人頭像</td>
+            </tr>
+            <tr>
+                <td>修改暱稱</td>
+                <td>更改顯示名稱</td>
+            </tr>
+            <tr>
+                <td>修改密碼</td>
+                <td>變更登入密碼</td>
+            </tr>
+            <tr>
+                <td rowspan="2">通知設定</td>
+                <td>訂單通知</td>
+                <td>開啟/關閉訂單相關通知</td>
+            </tr>
+            <tr>
+                <td>優惠通知</td>
+                <td>開啟/關閉優惠活動通知</td>
+            </tr>
+            <tr>
+                <td rowspan="2">隱私設定</td>
+                <td>隱私政策</td>
+                <td>查看隱私政策</td>
+            </tr>
+            <tr>
+                <td>服務條款</td>
+                <td>查看服務條款</td>
+            </tr>
+        </table>
+
+        <div class="info-box warning">
+            <h4>⚠️ 客服常見問題</h4>
+            <ul>
+                <li><strong>如何修改密碼？</strong>
+                    <ul>
+                        <li>方法 1：個人中心 → 修改密碼</li>
+                        <li>方法 2：設置 → 帳戶設定 → 修改密碼</li>
+                    </ul>
+                </li>
+                <li><strong>如何關閉通知？</strong>
+                    <ul>
+                        <li>設置 → 通知設定 → 關閉對應通知開關</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 補充章節：隱私條款彈窗 -->
+        </section>
+
+        <!-- 8. 付款方式 -->
+        <section id="payment">
+            <h2>8. 付款方式</h2>
+
+            <h3>💳 支援的付款方式</h3>
+            <table>
+                <tr>
+                    <th>付款方式</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>餘額抵扣</td>
+                    <td>使用帳戶儲值餘額支付</td>
+                </tr>
+                <tr>
+                    <td>電子票券</td>
+                    <td>使用已購買的電子票券</td>
+                </tr>
+                <tr>
+                    <td>優惠券</td>
+                    <td>使用折扣優惠券</td>
+                </tr>
+                <tr>
+                    <td>Apple Pay</td>
+                    <td>Apple 行動支付</td>
+                </tr>
+                <tr>
+                    <td>信用卡</td>
+                    <td>信用卡線上支付</td>
+                </tr>
+                <tr>
+                    <td>轉帳</td>
+                    <td>銀行轉帳</td>
+                </tr>
+                <tr>
+                    <td>超商</td>
+                    <td>超商代碼繳費</td>
+                </tr>
+                <tr>
+                    <td>Line Pay</td>
+                    <td>Line Pay 行動支付</td>
+                </tr>
+            </table>
+
+            <h3>付款流程</h3>
+            <ol class="step-list">
+                <li>選擇方案與時長</li>
+                <li>確認訂單金額</li>
+                <li>選擇優惠券/電子票券（若有）</li>
+                <li>選擇付款方式</li>
+                <li>點擊「結帳」</li>
+                <li>確認「訂單保留10分鐘」提示</li>
+                <li>完成付款</li>
+            </ol>
+
+            <h3>💡 組合付款範例</h3>
+
+            <div class="feature-section">
+                <h4>範例 1：餘額 + 信用卡</h4>
+                <table>
+                    <tr>
+                        <th>項目</th>
+                        <th>金額</th>
+                    </tr>
+                    <tr>
+                        <td>訂單金額</td>
+                        <td>$1,000</td>
+                    </tr>
+                    <tr>
+                        <td>餘額抵扣</td>
+                        <td>-$300</td>
+                    </tr>
+                    <tr>
+                        <td>信用卡支付</td>
+                        <td>$700</td>
+                    </tr>
+                    <tr>
+                        <td><strong>總計</strong></td>
+                        <td><strong>$700</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="feature-section">
+                <h4>範例 2：優惠券 + 餘額</h4>
+                <table>
+                    <tr>
+                        <th>項目</th>
+                        <th>金額</th>
+                    </tr>
+                    <tr>
+                        <td>訂單金額</td>
+                        <td>$800</td>
+                    </tr>
+                    <tr>
+                        <td>優惠券折扣</td>
+                        <td>-$100</td>
+                    </tr>
+                    <tr>
+                        <td>餘額抵扣</td>
+                        <td>-$700</td>
+                    </tr>
+                    <tr>
+                        <td><strong>總計</strong></td>
+                        <td><strong>$0</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="info-box warning">
+                <h4>⚠️ 新員工注意事項</h4>
+                <ul>
+                    <li>餘額可與其他付款方式搭配</li>
+                    <li>優惠券與電子票券可疊加（視店家規定）</li>
+                    <li>訂單保留僅 10 分鐘，超時自動取消</li>
+                    <li>$0 訂單仍需完成結帳流程</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 9. 常見問題處理 -->
+        <section id="faq">
+            <h2>9. 常見問題處理</h2>
+
+            <h3>❓ 客戶常見問題</h3>
+
+            <div class="feature-section">
+                <h4>Q1：忘記密碼怎麼辦？</h4>
+                <p><strong>A：</strong>引導客戶點擊登入頁面右下角「忘記密碼」連結，依提示進行密碼重設。</p>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q2：無法登入，顯示「請勾選同意條款」？</h4>
+                <p><strong>A：</strong>提醒客戶必須勾選「我已閱讀並同意《隱私條款》、《使用條款》」才能登入。</p>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q3：為什麼找不到我想要的店家？</h4>
+                <p><strong>A：</strong></p>
+                <ol>
+                    <li>檢查頂部區域選擇是否正確（如：北區、新北市等）</li>
+                    <li>使用頂部搜尋欄直接搜尋店家名稱</li>
+                    <li>確認店家是否在平台上線</li>
+                </ol>
+                <div class="info-box info">
+                    <h4>💡 關於「籌備中」店家</h4>
+                    <p>如果店家顯示「籌備中」，代表：</p>
+                    <ul>
+                        <li>該店已與平台<strong>簽約</strong></li>
+                        <li>目前正在<strong>裝修階段</strong></li>
+                        <li>預計在 <strong>1-2 個月內開放營業</strong></li>
+                        <li>暫時<strong>無法預訂</strong>座位</li>
+                    </ul>
+                    <p>客戶可以先關注該店家，等開幕後即可預訂。</p>
+                </div>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q4：包廂顯示「空閒中」但無法預訂？</h4>
+                <p><strong>A：</strong></p>
+                <ol>
+                    <li>確認選擇的時段是否在時間軸上顯示為灰色（可預訂）</li>
+                    <li>檢查選擇的開始時間是否為未來時間</li>
+                    <li>若問題持續，建議直接撥打店家電話確認</li>
+                </ol>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q5：訂單顯示 $0 是什麼意思？</h4>
+                <p><strong>A：</strong>可能原因：</p>
+                <ul>
+                    <li>使用電子票券全額抵扣</li>
+                    <li>使用本店餘額全額抵扣</li>
+                    <li>店家特殊優惠活動（如：測試訂單）</li>
+                </ul>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q6：訂單已付款但顯示「已取消」？</h4>
+                <p><strong>A：</strong>這是因為客戶使用線上付款時，<strong>超過 10 分鐘訂單保留時間才完成付款</strong>。</p>
+                <div class="info-box info">
+                    <h4>💡 處理方式</h4>
+                    <ul>
+                        <li>付款金額會自動轉入<strong>該店家的本店餘額</strong></li>
+                        <li>客戶可使用本店餘額重新預訂座位</li>
+                        <li>或聯繫客服申請退款</li>
+                    </ul>
+                </div>
+                <p><strong>預防方式：</strong>提醒客戶務必在 10 分鐘內完成付款，避免訂單自動取消。</p>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q7：餘額抵扣後還能退款嗎？</h4>
+                <p><strong>A：</strong>餘額抵扣的部分會退回<strong>該店的本店餘額</strong>，其他付款方式依各支付管道規定處理。</p>
+                <div class="info-box warning">
+                    <p>⚠️ <strong>注意：</strong>退回的餘額僅限該店使用，無法轉移到其他店家。</p>
+                </div>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q8：「本店餘額」和「賬戶餘額」有什麼不同？</h4>
+                <p><strong>A：</strong></p>
+                <ul>
+                    <li><strong>賬戶餘額</strong>：全店家的餘額加總，顯示在首頁「我的賬戶」區塊</li>
+                    <li><strong>本店餘額</strong>：僅限該店使用的餘額，顯示在店家詳情頁</li>
+                </ul>
+                <div class="info-box warning">
+                    <h4>⚠️ 重要</h4>
+                    <p><strong>餘額無法跨店通用！</strong>每家店的餘額是獨立的，只能在該店使用。</p>
+                </div>
+                <p><strong>範例：</strong></p>
+                <ul>
+                    <li>A 店餘額：$1,000</li>
+                    <li>B 店餘額：$2,000</li>
+                    <li>C 店餘額：$1,340</li>
+                    <li><strong>賬戶餘額（首頁顯示）：$4,340</strong></li>
+                </ul>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q9：訂單保留 10 分鐘是什麼意思？</h4>
+                <p><strong>A：</strong>點擊「結帳」後，系統會為您保留該時段 10 分鐘，期間其他人無法預訂。若 10 分鐘內未完成付款，訂單將自動取消，時段重新開放。</p>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q10：如何使用會員條碼？</h4>
+                <p><strong>A：</strong></p>
+                <ol>
+                    <li>首頁點擊「開啟會員條碼 SCAN THE CODE」</li>
+                    <li><strong>用手機掃描繳費機的機台 QR Code</strong></li>
+                    <li>完成身份識別後即可使用繳費機功能</li>
+                </ol>
+                <div class="info-box info">
+                    <h4>💡 操作流程</h4>
+                    <p><strong>客戶 → 開啟會員條碼 → 掃描繳費機 → 完成付款/預訂</strong></p>
+                    <p>⚠️ 注意：是客戶<strong>主動掃描</strong>繳費機，不是店家掃描客戶的條碼。</p>
+                </div>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q11：為什麼我付款成功了，訂單卻顯示「已取消」？</h4>
+                <p><strong>A：</strong>這是因為您<strong>超過 10 分鐘的訂單保留時間才完成付款</strong>。</p>
+                <div class="info-box warning">
+                    <h4>⚠️ 處理方式</h4>
+                    <p>系統會自動將付款金額轉入<strong>該店的本店餘額</strong>，您可以：</p>
+                    <ol>
+                        <li>使用本店餘額重新預訂座位</li>
+                        <li>或聯繫客服申請退款</li>
+                    </ol>
+                </div>
+                <div class="info-box info">
+                    <h4>💡 預防方式</h4>
+                    <p>請務必在點擊「結帳」後的 <strong>10 分鐘內完成付款</strong>，避免訂單自動取消。</p>
+                </div>
+            </div>
+
+            <div class="feature-section">
+                <h4>Q12：「JOIN US」是加入會員還是加盟？</h4>
+                <p><strong>A：</strong>「JOIN US」是<strong>招收加盟商</strong>的入口，不是加入會員功能。</p>
+                <div class="info-box warning">
+                    <h4>⚠️ 重要說明</h4>
+                    <ul>
+                        <li>這個功能<strong>容易與「加入會員」混淆</strong></li>
+                        <li>一般顧客使用 APP 即自動成為會員，<strong>無需額外加入</strong></li>
+                        <li>若客戶有<strong>加盟意願</strong>，可點擊此功能了解加盟資訊</li>
+                    </ul>
+                </div>
+                <div class="info-box info">
+                    <h4>💡 未來更新</h4>
+                    <p>為避免混淆，此功能的文字與 UI 設計將在未來版本更新，請留意系統公告。</p>
+                </div>
+            </div>
+
+            <h3>🛠️ 客服處理技巧</h3>
+
+            <div class="info-box info">
+                <h4>📞 電話諮詢</h4>
+                <ol>
+                    <li>確認客戶問題類型（登入/預訂/付款/訂單）</li>
+                    <li>引導客戶提供訂單編號或會員卡號</li>
+                    <li>使用本教材快速查找對應功能說明</li>
+                    <li>清楚說明操作步驟，必要時請客戶重複確認</li>
+                </ol>
+            </div>
+
+            <div class="info-box info">
+                <h4>💬 訊息諮詢</h4>
+                <ol>
+                    <li>回覆速度建議在 5 分鐘內</li>
+                    <li>使用禮貌用語：「您好」、「感謝您的耐心」、「很抱歉造成不便」</li>
+                    <li>附上截圖或步驟說明更清楚</li>
+                    <li>複雜問題可主動提議電話溝通</li>
+                </ol>
+            </div>
+
+            <div class="info-box info">
+                <h4>🏪 店面人員</h4>
+                <ol>
+                    <li>主動詢問客戶是否需要協助操作 APP</li>
+                    <li>提醒客戶「協助整理包廂可獲得續時券」優惠</li>
+                    <li>鼓勵客戶加入會員並儲值（提升客戶黏著度）</li>
+                    <li>熟記店內套餐方案與設備特色</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 附錄 -->
+        <section id="appendix">
+            <h2>📚 附錄</h2>
+
+            <h3>截圖索引</h3>
+            <table>
+                <tr>
+                    <th>截圖檔名</th>
+                    <th>功能說明</th>
+                </tr>
+                <tr>
+                    <td>IMG_0509.PNG</td>
+                    <td>登入頁面</td>
+                </tr>
+                <tr>
+                    <td>IMG_0510.PNG</td>
+                    <td>首頁（帳號 0840 / 北區）</td>
+                </tr>
+                <tr>
+                    <td>IMG_0511.PNG</td>
+                    <td>店家列表頁（運動 & 桌遊混合）</td>
+                </tr>
+                <tr>
+                    <td>IMG_0512.PNG</td>
+                    <td>訂單列表頁</td>
+                </tr>
+                <tr>
+                    <td>IMG_0513.PNG</td>
+                    <td>店家詳情頁（無老板逢甲店）</td>
+                </tr>
+                <tr>
+                    <td>IMG_1994.PNG</td>
+                    <td>首頁（帳號 Sky / 新北市）</td>
+                </tr>
+                <tr>
+                    <td>IMG_5733.PNG</td>
+                    <td>立即預定頁面（步驟 01-03）</td>
+                </tr>
+                <tr>
+                    <td>IMG_5734.PNG</td>
+                    <td>立即預定頁面（步驟 04-05）</td>
+                </tr>
+                <tr>
+                    <td>IMG_5735.PNG</td>
+                    <td>日期選擇彈窗</td>
+                </tr>
+                <tr>
+                    <td>IMG_5736.PNG</td>
+                    <td>結帳確認提示彈窗</td>
+                </tr>
+                <tr>
+                    <td>IMG_5737.PNG</td>
+                    <td>餘額抵扣付款範例</td>
+                </tr>
+            </table>
+
+            <h3>專有名詞解釋</h3>
+            <table>
+                <tr>
+                    <th>名詞</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>ONE聚</td>
+                    <td>品牌名稱，整合桌遊店與運動場館的預約平台</td>
+                </tr>
+                <tr>
+                    <td>自助開桌</td>
+                    <td>用戶可透過 APP 自行預訂包廂，無需電話或現場排隊</td>
+                </tr>
+                <tr>
+                    <td>會員卡號</td>
+                    <td>唯一識別碼，用於會員管理與積點</td>
+                </tr>
+                <tr>
+                    <td>電子票券</td>
+                    <td>預先購買的使用券，可抵扣訂單金額</td>
+                </tr>
+                <tr>
+                    <td>優惠券</td>
+                    <td>折扣券，可減免部分訂單金額</td>
+                </tr>
+                <tr>
+                    <td>賬戶餘額</td>
+                    <td>全店家餘額的加總，顯示在首頁「我的賬戶」區塊（餘額無法跨店通用）</td>
+                </tr>
+                <tr>
+                    <td>本店餘額</td>
+                    <td>該店的儲值餘額，僅限該店使用，顯示在店家詳情頁</td>
+                </tr>
+                <tr>
+                    <td>續時券</td>
+                    <td>協助整理包廂後獲得的免費使用時數券</td>
+                </tr>
+                <tr>
+                    <td>空閒中</td>
+                    <td>包廂目前可直接預訂的狀態</td>
+                </tr>
+                <tr>
+                    <td>籌備中</td>
+                    <td>店家已簽約並正在裝修，預計 1-2 個月內開放營業，暫時無法預訂</td>
+                </tr>
+                <tr>
+                    <td>訂單保留</td>
+                    <td>點擊結帳後，系統保留時段的時間（10 分鐘）</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 教育訓練檢核表 -->
+        <section id="checklist">
+            <h2>📝 教育訓練檢核表</h2>
+
+            <p>新員工完成本教材閱讀後，請進行以下檢核：</p>
+
+            <div class="feature-section">
+                <ul style="list-style-type: none;">
+                    <li>☐ 能夠引導客戶完成登入與註冊</li>
+                    <li>☐ 熟悉首頁各功能區塊位置與用途</li>
+                    <li>☐ 能說明店家卡片上的所有資訊</li>
+                    <li>☐ 能完整說明預約訂位的 5 個步驟</li>
+                    <li>☐ 理解不同訂單狀態的意義</li>
+                    <li>☐ 能解釋會員功能與優惠機制</li>
+                    <li>☐ 熟悉所有支付方式及組合付款邏輯</li>
+                    <li>☐ 能處理至少 5 個常見問題</li>
+                </ul>
+            </div>
+
+            <table style="margin-top: 30px;">
+                <tr>
+                    <th>項目</th>
+                    <th>填寫欄位</th>
+                </tr>
+                <tr>
+                    <td>新員工簽名</td>
+                    <td>________________</td>
+                </tr>
+                <tr>
+                    <td>完成日期</td>
+                    <td>________________</td>
+                </tr>
+                <tr>
+                    <td>督導簽名</td>
+                    <td>________________</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 10. 隱私條款與服務協議 -->
+        <section id="privacy">
+            <h2>10. 隱私條款與服務協議</h2>
+
+        <h3>📋 隱私條款與服務協議</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/12-协议.png" alt="隱私條款彈窗" class="screenshot">
+            <p class="screenshot-caption">圖 10-1：隱私條款彈窗</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>服務協議與隱私政策彈窗，以模態對話框（Modal）形式覆蓋在暗色遮罩層上方，確保用戶了解並同意相關條款。</p>
+
+        <h4>介面元素</h4>
+        <table>
+            <tr>
+                <th>元素</th>
+                <th>說明</th>
+            </tr>
+            <tr>
+                <td>吉祥物</td>
+                <td>彈窗上方露出的兔子角色（穿藍色T恤）</td>
+            </tr>
+            <tr>
+                <td>標題</td>
+                <td>「服務協議和隱私政策」</td>
+            </tr>
+            <tr>
+                <td>說明文字</td>
+                <td>詳細告知用戶將收集的資訊類型及用途</td>
+            </tr>
+            <tr>
+                <td>超連結</td>
+                <td>藍色可點擊文字《服務協議》和《隱私政策》</td>
+            </tr>
+            <tr>
+                <td>同意並接受按鈕</td>
+                <td>黑色全寬圓角按鈕，白色文字「同意並接受」</td>
+            </tr>
+            <tr>
+                <td>暫不同意</td>
+                <td>灰色文字按鈕</td>
+            </tr>
+            <tr>
+                <td>游客模式</td>
+                <td>灰色文字按鈕</td>
+            </tr>
+        </table>
+
+        <h4>說明文字內容（範例）</h4>
+        <div class="feature-section">
+            <p>請你務必審慎閱讀、充分理解"服務協議"和"隱私政策"各條款，包括但不限於：為了更好的向你提供服務，我們需要收集你的設備標識、操作日誌等信息用於分析、優化應用性能。</p>
+            <p>你可閱讀《服務協議》和《隱私政策》了解詳細信息。如果你同意，請點擊下面按鈕開始接受我們的服務。</p>
+        </div>
+
+        <h4>操作步驟</h4>
+        <ol class="step-list">
+            <li>APP 首次啟動或特定時機彈出此對話框</li>
+            <li>用戶可點擊藍色《服務協議》或《隱私政策》超連結查看完整條款</li>
+            <li>選擇「同意並接受」→ 進入 APP 完整功能</li>
+            <li>選擇「暫不同意」→ 可能退出或限制功能</li>
+            <li>選擇「游客模式」→ 以訪客身份瀏覽，功能受限</li>
+        </ol>
+
+        <div class="info-box info">
+            <h4>💡 設計特點</h4>
+            <ul>
+                <li>符合隱私法規要求（如 GDPR/個資法）</li>
+                <li>提供三種選擇，用戶體驗友善</li>
+                <li>游客模式為未同意用戶提供基本瀏覽體驗</li>
+                <li>超連結可查看完整條款，確保透明度</li>
+            </ul>
+        </div>
+
+        <div class="info-box warning">
+            <h4>⚠️ 客服注意事項</h4>
+            <ul>
+                <li>若客戶詢問為何需要同意，請說明：
+                    <ul>
+                        <li>這是法律要求，保護雙方權益</li>
+                        <li>收集的資訊僅用於優化服務</li>
+                        <li>可隨時在設置中查看或撤回同意</li>
+                    </ul>
+                </li>
+                <li>游客模式限制：
+                    <ul>
+                        <li>無法預訂座位</li>
+                        <li>無法使用儲值功能</li>
+                        <li>無法查看訂單記錄</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </section>
+
+        <!-- 11. 加盟頁面（JOIN US） -->
+        <section id="franchise">
+            <h2>11. 加盟頁面（JOIN US）</h2>
+
+        <h3>🤝 加盟頁面（JOIN US）</h3>
+
+        <div class="screenshot-container">
+            <img src="screenshots/ui/17-加盟.png" alt="加盟頁面" class="screenshot">
+            <p class="screenshot-caption">圖 11-1：加盟頁面</p>
+        </div>
+
+        <h4>功能說明</h4>
+        <p>招收加盟商的專屬頁面，提供加盟資訊、申請流程及聯絡方式。</p>
+
+        <h4>頁面內容（依實際設計而異）</h4>
+        <table>
+            <tr>
+                <th>區塊</th>
+                <th>內容</th>
+            </tr>
+            <tr>
+                <td>品牌介紹</td>
+                <td>ONE聚品牌理念、發展歷程、市場優勢</td>
+            </tr>
+            <tr>
+                <td>加盟優勢</td>
+                <td>技術支援、營運輔導、系統提供等</td>
+            </tr>
+            <tr>
+                <td>投資說明</td>
+                <td>加盟金、設備費用、預估投資回報等</td>
+            </tr>
+            <tr>
+                <td>申請流程</td>
+                <td>諮詢 → 評估 → 簽約 → 培訓 → 開業</td>
+            </tr>
+            <tr>
+                <td>聯絡方式</td>
+                <td>電話、email、線上表單等</td>
+            </tr>
+        </table>
+
+        <div class="info-box warning">
+            <h4>⚠️ 與「加入會員」的區別</h4>
+            <p>此頁面是<strong>招收加盟商</strong>，不是「加入會員」：</p>
+            <ul>
+                <li><strong>加盟（JOIN US）</strong>：開設新店家，成為 ONE聚 的合作夥伴</li>
+                <li><strong>加入會員</strong>：一般顧客使用 APP 即自動成為會員，無需額外操作</li>
+                <li>若客戶誤點「JOIN US」，請引導其返回首頁繼續使用</li>
+            </ul>
+        </div>
+
+        <div class="info-box info">
+            <h4>💡 未來更新</h4>
+            <p>為避免混淆，「JOIN US」功能的文字與 UI 設計將在未來版本更新，更加明確標示為「加盟諮詢」或「合作夥伴」。</p>
+        </div>
+        </section>
+
+        <!-- 結尾 -->
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #ddd; text-align: center; color: #666;">
+            <p><strong>ONE聚 桌遊自助開桌 APP - 用戶端功能說明</strong></p>
+            <p>新員工教育訓練教材 v1.0 | 2026-02-25</p>
+            <p>文件結束</p>
+        </div>
+    </div>
+
+    <script>
+        // 平滑滾動到錨點
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
